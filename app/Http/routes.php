@@ -35,8 +35,8 @@ Route::group(['prefix'=>'backend'], function(){
 
     Route::get('/logout', 'Backend\AuthController@logout');
 
-    /*Route::get('/register', 'Backend\AuthController@getRegister');
-    Route::post('/register', 'Backend\AuthController@postRegister');*/
+    Route::get('/register', 'Backend\AuthController@getRegister');
+    Route::post('/register', 'Backend\AuthController@postRegister');
 
     Route::group(['middleware' => ['auth']], function(){
 

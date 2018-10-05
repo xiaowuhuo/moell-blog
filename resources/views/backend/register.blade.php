@@ -35,41 +35,46 @@
     </div>
     <!-- /.login-logo -->
     <div class="login-box-body">
-        <form action="{{ url('backend/login') }}"  method="post">
-            {{ csrf_field() }}
-
-            <div class="form-group has-feedback {{ $errors->has('email') ? ' has-warning' : '' }}">
-                <input type="email" name="email" class="form-control" placeholder="Email" value="{{ old('email') }}">
-                <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
-                @if ($errors->has('email'))
-                    <span class="help-block">
-                        <strong>{{ $errors->first('email') }}</strong>
-                    </span>
-                @endif
-            </div>
-            <div class="form-group has-feedback {{ $errors->has('password') ? ' has-warning' : '' }}">
-                <input type="password" name="password" class="form-control" placeholder="Password" value="{{ old('password') }}">
-                <span class="glyphicon glyphicon-lock form-control-feedback"></span>
-                @if ($errors->has('password'))
-                    <span class="help-block">
-                        <strong>{{ $errors->first('password') }}</strong>
-                    </span>
-                @endif
-            </div>
-            <div class="row">
-                <div class="col-xs-8">
-                    <div class="checkbox icheck">
-                        <label>
-                            <input type="checkbox" name="remember"> Remember Me
-                        </label>
+        <form role="form" method="post" enctype="multipart/form-data" action="{{ url('backend/user') }}" id="user-form" >
+            <div class="box-body">
+                <div class="form-group">
+                    <label for="user_pic">头像</label>
+                    <div class="row">
+                        <div class='col-md-6'>
+                            <input type="file" name="user_pic" id="user_pic" accept="image/png,image/gif,image/jpeg">
+                        </div>
                     </div>
                 </div>
-                <!-- /.col -->
-                <div class="col-xs-4">
-                    <button type="submit" class="btn btn-primary btn-block btn-flat">Sign In</button>
+                <div class="form-group">
+                    <label for="name">名字</label>
+                    <div class="row">
+                        <div class='col-md-6'>
+                            <input type='text' class='form-control' name="name" id='name' placeholder='请输入名字'>
+                        </div>
+                    </div>
                 </div>
-                <!-- /.col -->
+                <div class="form-group">
+                    <label for="email">登录邮箱</label>
+                    <div class="row">
+                        <div class='col-md-6'>
+                            <input type="text" class='form-control' name="email" id="email" placeholder="请输入唯一的邮箱">
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="password">登录密码</label>
+                    <div class="row">
+                        <div class='col-md-6'>
+                            <input type="password" class='form-control' name="password" id="password" placeholder="请输入大于等于8位的密码">
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xs-4">
+                    <button type="submit" class="btn btn-primary btn-block btn-flat">Sign up</button>
+                </div>
+
             </div>
+
         </form>
 
     </div>
