@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>My Blog | Log in</title>
+    <title>My Blog | register</title>
     <!-- Tell the browser to be responsive to screen width -->
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
     <!-- Bootstrap 3.3.6 -->
@@ -35,44 +35,55 @@
     </div>
     <!-- /.login-logo -->
     <div class="login-box-body">
-        <form role="form" method="post" enctype="multipart/form-data" action="{{ url('backend/user') }}" id="user-form" >
-            <div class="box-body">
-                <div class="form-group">
-                    <label for="user_pic">头像</label>
-                    <div class="row">
-                        <div class='col-md-6'>
-                            <input type="file" name="user_pic" id="user_pic" accept="image/png,image/gif,image/jpeg">
-                        </div>
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label for="name">名字</label>
-                    <div class="row">
-                        <div class='col-md-6'>
-                            <input type='text' class='form-control' name="name" id='name' placeholder='请输入名字'>
-                        </div>
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label for="email">登录邮箱</label>
-                    <div class="row">
-                        <div class='col-md-6'>
-                            <input type="text" class='form-control' name="email" id="email" placeholder="请输入唯一的邮箱">
-                        </div>
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label for="password">登录密码</label>
-                    <div class="row">
-                        <div class='col-md-6'>
-                            <input type="password" class='form-control' name="password" id="password" placeholder="请输入大于等于8位的密码">
-                        </div>
-                    </div>
-                </div>
-                <div class="col-xs-4">
-                    <button type="submit" class="btn btn-primary btn-block btn-flat">Sign up</button>
-                </div>
+        <form role="form" method="post" action="{{ url('backend/register') }}" id="user-form" >
+            {{ csrf_field() }}
 
+
+            <div class="form-group has-feedback {{ $errors->has('name') ? ' has-warning' : '' }}">
+                <label for="name">名字</label>
+                <input type="text" name="name" class="form-control" placeholder="请输入名字" value="{{ old('name') }}">
+                @if ($errors->has('name'))
+                    <span class="help-block">
+                        <strong>{{ $errors->first('name') }}</strong>
+                    </span>
+                @endif
+            </div>
+
+            <div class="form-group has-feedback {{ $errors->has('email') ? ' has-warning' : '' }}">
+                <label for="name">邮箱</label>
+                <input type="email" name="email" class="form-control" placeholder="请输入唯一的邮箱" value="{{ old('email') }}">
+                @if ($errors->has('email'))
+                    <span class="help-block">
+                        <strong>{{ $errors->first('email') }}</strong>
+                    </span>
+                @endif
+            </div>
+            <div class="form-group has-feedback {{ $errors->has('password') ? ' has-warning' : '' }}">
+                <label for="name">密码</label>
+                <input type="password" name="password" class="form-control" placeholder="请输入大于等于8位的密码" value="{{ old('password') }}">
+                @if ($errors->has('password'))
+                    <span class="help-block">
+                        <strong>{{ $errors->first('password') }}</strong>
+                    </span>
+                @endif
+            </div>
+            <div class="form-group has-feedback {{ $errors->has('password_confirmation') ? ' has-warning' : '' }}">
+                <label for="name">确认密码</label>
+                <input type="password" name="password_confirmation" class="form-control" placeholder="请输入大于等于8位的密码" value="{{ old('password_confirmation') }}">
+                @if ($errors->has('password_confirmation'))
+                    <span class="help-block">
+                        <strong>{{ $errors->first('password_confirmation') }}</strong>
+                    </span>
+                @endif
+            </div>
+            <div class="row">
+                <div class="col-xs-8">
+                </div>
+                <!-- /.col -->
+                <div class="col-xs-4">
+                    <button type="submit" class="btn btn-primary btn-block btn-flat">register</button>
+                </div>
+                <!-- /.col -->
             </div>
 
         </form>
