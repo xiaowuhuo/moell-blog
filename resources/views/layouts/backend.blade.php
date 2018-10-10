@@ -42,9 +42,9 @@
         <!-- Logo -->
         <a href="{{ url('backend/' )}}" class="logo">
             <!-- mini logo for sidebar mini 50x50 pixels -->
-            <span class="logo-mini"><b>M</b>B</span>
+            <span class="logo-mini"><b>M</b>y</span>
             <!-- logo for regular state and mobile devices -->
-            <span class="logo-lg"><b>Moell</b>&nbsp;Blog</span>
+            <span class="logo-lg"><b>My</b>&nbsp;Blog</span>
         </a>
         <!-- Header Navbar: style can be found in header.less -->
         <nav class="navbar navbar-static-top">
@@ -67,7 +67,7 @@
                                 <img src="{{ asset('uploads/avatar')."/".Auth::user()->user_pic }}" class="img-circle" alt="User Image">
 
                                 <p>
-                                    Moell Blog - 做努力的自己
+                                    做努力的自己
                                     {{--<small></small>--}}
                                 </p>
                             </li>

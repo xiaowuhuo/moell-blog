@@ -52,9 +52,47 @@ return [
             ]
         ],
         [
+            'backend.upload.index' => [
+                'icon' => 'fa fa-file-image-o',
+                'name' => '文件'
+            ]
+        ],
+        [
             'backend.navigation.index' => [
                 'icon' => 'fa fa-navicon',
                 'name' => '导航'
+            ]
+        ],
+        [
+            'tree_title' => [
+                'icon' => 'fa fa-user',
+                'name' => '用户'
+            ],
+            'backend.user.index' => [
+                'icon' => '',
+                'name' => '用户管理'
+            ],
+            'backend.user.create' => [
+                'icon' => '',
+                'name' => '用户添加'
+            ]
+        ],
+        [
+            'tree_title' => [
+                'icon' => 'fa fa-cog',
+                'name' => '设置'
+            ],
+            'backend.system.index' => [
+                'icon' => '',
+                'name' => '系统设置'
+            ],
+            'backend.link.index' => [
+                'icon' => '',
+                'name' => '友情链接'
+            ],
+            'backend.page.index' => [
+                'icon' => '',
+                'name' => '自定义页面'
             ]
         ]
     ]

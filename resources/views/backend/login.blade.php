@@ -57,15 +57,11 @@
                 @endif
             </div>
             <div class="row">
-                <div class="col-xs-8">
-                    <div class="checkbox icheck">
-                        <label>
-                            <input type="checkbox" name="remember"> Remember Me
-                        </label>
-                    </div>
+                <div class="col-xs-6">
+                    <a href="{{ url('backend/register') }}" class="btn btn-primary btn-block btn-flat">Sign up</a>
                 </div>
                 <!-- /.col -->
-                <div class="col-xs-4">
+                <div class="col-xs-6">
                     <button type="submit" class="btn btn-primary btn-block btn-flat">Sign In</button>
                 </div>
                 <!-- /.col -->

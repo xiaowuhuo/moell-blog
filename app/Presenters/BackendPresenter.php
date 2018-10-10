@@ -2,6 +2,7 @@
 
 namespace App\Presenters;
 
+use Illuminate\Support\Facades\Auth;
 use Route;
 
 class BackendPresenter
@@ -11,7 +12,12 @@ class BackendPresenter
     public function menu()
     {
         $this->route = Route::currentRouteName();
-        $menu = config('blog.menu');
+        $main = Auth::user()->main;
+        if($main == 1){
+            $menu = config('blogMain.menu');
+        }else{
+            $menu = config('blog.menu');
+        }
 
         $menuString = '';
         foreach ($menu as $mList) {
